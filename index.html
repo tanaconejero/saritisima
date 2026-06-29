@@ -6,7 +6,7 @@
 <title>Saritísima · Peluquería en Ontinyent | Color, Balayage y Cuidado del Cabello</title>
 <meta name="description" content="Saritísima (SRT) Peluquería en Ontinyent, Valencia. Especialistas en balayage, color y cabello sano. Productos Davines y GHD. Pide cita por WhatsApp.">
 <meta name="theme-color" content="#b8956a">
-<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
 <meta property="og:title" content="Saritísima · Peluquería en Ontinyent">
 <meta property="og:description" content="Especialistas en balayage, color y cuidado del cabello. Productos Davines y GHD.">
 <meta property="og:type" content="website">
@@ -68,10 +68,9 @@
   .hero h1 em{font-style:italic;color:var(--gold)}
   .hero p{font-size:1.08rem;color:var(--muted);max-width:30rem;margin-bottom:2.2rem}
   .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-  .hero-visual{position:relative;aspect-ratio:3/4;border-radius:200px 200px 24px 24px;overflow:hidden;box-shadow:var(--shadow);
-    background:linear-gradient(160deg,#c9ad8c,#a07d56)}
-  .hero-visual .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-family:var(--serif);font-size:5rem;letter-spacing:.05em}
-  .hero-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-visual{position:relative;width:100%;max-width:380px;aspect-ratio:1;margin-left:auto;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero-visual::after{content:'';position:absolute;inset:0;border-radius:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);pointer-events:none}
+  .hero-logo{width:100%;height:100%;object-fit:contain;background:#8d8175}
   .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);z-index:2}
 
   /* SECTIONS */
