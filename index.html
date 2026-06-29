@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saritísima · Peluquería en Ontinyent | Color, Balayage y Cuidado del Cabello</title>
+<meta name="description" content="Saritísima (SRT) Peluquería en Ontinyent, Valencia. Especialistas en balayage, color y cabello sano. Productos Davines y GHD. Pide cita por WhatsApp.">
+<meta name="theme-color" content="#b8956a">
+<meta property="og:title" content="Saritísima · Peluquería en Ontinyent">
+<meta property="og:description" content="Especialistas en balayage, color y cuidado del cabello. Productos Davines y GHD.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6f1;
+    --sand:#f1e8de;
+    --gold:#b8956a;
+    --gold-dark:#9a7a54;
+    --ink:#33291f;
+    --muted:#7a6f63;
+    --white:#ffffff;
+    --shadow:0 18px 50px rgba(120,95,65,.14);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Montserrat',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:90%;max-width:1140px;margin:0 auto}
+  .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem}
+  .btn{display:inline-block;font-family:var(--sans);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:1rem 2.2rem;border-radius:40px;transition:.3s;cursor:pointer;border:1px solid var(--gold)}
+  .btn-solid{background:var(--gold);color:var(--white)}
+  .btn-solid:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--gold);color:var(--white)}
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;width:100%;z-index:100;transition:.4s}
+  header.scrolled{background:rgba(250,246,241,.94);backdrop-filter:blur(10px);box-shadow:0 2px 30px rgba(120,95,65,.08)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 0;transition:.4s}
+  header.scrolled nav{padding:.9rem 0}
+  .logo{font-family:var(--serif);font-size:1.8rem;font-weight:600;letter-spacing:.02em}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:2.4rem;list-style:none}
+  .nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;position:relative}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{font-size:.74rem!important;letter-spacing:.16em;border:1px solid var(--gold);padding:.55rem 1.3rem;border-radius:30px;color:var(--gold)!important;transition:.3s}
+  .nav-cta:hover{background:var(--gold);color:#fff!important}
+  .nav-cta::after{display:none!important}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+  .burger span{width:26px;height:2px;background:var(--ink);transition:.3s}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+    background:linear-gradient(110deg,#f6ede2 0%,#efe3d4 45%,#e7d6c2 100%)}
+  .hero::before{content:'';position:absolute;right:-12%;top:-10%;width:60%;height:120%;
+    background:radial-gradient(circle at center,rgba(184,149,106,.22),transparent 65%);}
+  .hero-inner{position:relative;z-index:2;width:90%;max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+  .hero h1{font-size:clamp(3rem,7vw,5.6rem);margin:.6rem 0 1.4rem}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p{font-size:1.08rem;color:var(--muted);max-width:30rem;margin-bottom:2.2rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-visual{position:relative;aspect-ratio:3/4;border-radius:200px 200px 24px 24px;overflow:hidden;box-shadow:var(--shadow);
+    background:linear-gradient(160deg,#c9ad8c,#a07d56)}
+  .hero-visual .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-family:var(--serif);font-size:5rem;letter-spacing:.05em}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);z-index:2}
+
+  /* SECTIONS */
+  section{padding:6.5rem 0}
+  .section-head{text-align:center;max-width:42rem;margin:0 auto 3.5rem}
+  .section-head h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin-bottom:1rem}
+  .section-head p{color:var(--muted)}
+
+  /* SERVICES */
+  .services{background:var(--white)}
+  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.6rem}
+  .service-card{background:var(--cream);border:1px solid #eaddcf;border-radius:18px;padding:2.4rem 2rem;transition:.35s}
+  .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+  .service-card .ico{width:54px;height:54px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
+  .service-card .ico svg{width:26px;height:26px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
+  .service-card h3{font-size:1.5rem;margin-bottom:.6rem}
+  .service-card p{font-size:.92rem;color:var(--muted)}
+  .service-note{text-align:center;margin-top:2.6rem;font-size:.95rem;color:var(--muted)}
+  .service-note a{color:var(--gold-dark);font-weight:500;border-bottom:1px solid var(--gold)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center}
+  .about-visual{aspect-ratio:4/5;border-radius:24px;background:linear-gradient(160deg,#e9d9c5,#cdb291);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:3rem;color:rgba(255,255,255,.85)}
+  .about-text h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:1.4rem}
+  .about-text p{color:var(--muted);margin-bottom:1.1rem}
+  .brands{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;padding-top:1.8rem;border-top:1px solid #eaddcf}
+  .brand{font-family:var(--serif);font-size:1.5rem;color:var(--gold-dark);letter-spacing:.04em}
+  .features{display:flex;gap:1.8rem;flex-wrap:wrap;margin-top:1.8rem}
+  .feature{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--ink)}
+  .feature svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.8}
+
+  /* GALLERY */
+  .gallery{background:var(--sand)}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .gallery-grid figure{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#d8c2a6,#b2906a);display:flex;align-items:flex-end;padding:1rem;color:#fff;font-size:.78rem;letter-spacing:.08em;transition:.4s}
+  .gallery-grid figure:nth-child(3n){background:linear-gradient(160deg,#cbb293,#9c7c58)}
+  .gallery-grid figure:nth-child(4n){background:linear-gradient(160deg,#e0cdb4,#c0a079)}
+  .gallery-grid figure::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(60,45,30,.45),transparent 55%);opacity:.7;transition:.4s}
+  .gallery-grid figure:hover{transform:scale(1.02)}
+  .gallery-grid figcaption{position:relative;z-index:2}
+  .gallery-note{text-align:center;margin-top:2rem;font-size:.85rem;color:var(--muted)}
+  .ig-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2.4rem;color:var(--gold-dark);font-weight:500;font-size:.85rem;letter-spacing:.06em}
+  .ig-link svg{width:20px;height:20px;stroke:var(--gold-dark);fill:none;stroke-width:1.6}
+  .gallery .section-head{margin-bottom:2.4rem}
+  .gallery-foot{text-align:center}
+
+  /* CONTACT */
+  .contact{background:var(--white)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:stretch}
+  .contact-info h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:1.6rem}
+  .info-row{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.6rem}
+  .info-row .ico{flex:0 0 44px;height:44px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center}
+  .info-row .ico svg{width:20px;height:20px;stroke:var(--gold-dark);fill:none;stroke-width:1.6}
+  .info-row h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.25rem}
+  .info-row p,.info-row a{color:var(--ink);font-size:1rem}
+  .info-row a:hover{color:var(--gold-dark)}
+  .hours{margin-top:.4rem;font-size:.92rem;color:var(--muted)}
+  .hours span{display:flex;justify-content:space-between;max-width:18rem;padding:.15rem 0}
+  .map-wrap{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);min-height:420px}
+  .map-wrap iframe{width:100%;height:100%;border:0;min-height:420px}
+  .contact-cta{margin-top:1.4rem}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#e8ddd0;padding:3.5rem 0 2rem;text-align:center}
+  footer .logo{color:#fff;font-size:2rem;margin-bottom:.6rem}
+  footer p{font-size:.85rem;color:#b9aa99;max-width:30rem;margin:0 auto .4rem}
+  .foot-social{display:flex;gap:1.2rem;justify-content:center;margin:1.6rem 0}
+  .foot-social a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:.3s}
+  .foot-social a:hover{background:var(--gold);border-color:var(--gold)}
+  .foot-social svg{width:20px;height:20px;stroke:#e8ddd0;fill:none;stroke-width:1.6}
+  .foot-bottom{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);font-size:.75rem;color:#8d8073;letter-spacing:.05em}
+
+  /* WHATSAPP FLOAT */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:200;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.45);transition:.3s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:32px;height:32px;fill:#fff}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:2.5rem;padding-top:6rem;padding-bottom:3rem}
+    .hero-visual{max-width:340px;margin:0 auto}
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.2rem}
+    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:75%;max-width:320px;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;gap:2rem;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(0,0,0,.1)}
+    .nav-links.open{transform:none}
+    .burger{display:flex;z-index:101}
+  }
+  @media(max-width:520px){
+    section{padding:4.5rem 0}
+    .hero h1{font-size:2.8rem}
+    .gallery-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <nav class="container">
+    <a href="#inicio" class="logo">Sarit<span>í</span>sima</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sobre">El salón</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="https://wa.me/34697765884" class="nav-cta" target="_blank" rel="noopener">Pide cita</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Peluquería · Ontinyent (Valencia)</p>
+      <h1>Tu cabello, <em>realzado</em> con arte y cuidado</h1>
+      <p>Especialistas en color, balayage y cabello sano. Un espacio cercano donde cada melena recibe atención personalizada y un acabado natural que enamora.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid" target="_blank" rel="noopener">Pide cita por WhatsApp</a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="mono">SRT</div>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Lo que hacemos</p>
+      <h2>Servicios pensados para tu melena</h2>
+      <p>Trabajamos con técnicas actuales y productos de primera para que salgas con un resultado impecable y un cabello más sano.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l9-9M14 7a3 3 0 100-6 3 3 0 000 6zM6 21a3 3 0 100-6 3 3 0 000 6z"/></svg></div>
+        <h3>Corte &amp; Estilo</h3>
+        <p>Cortes femeninos y masculinos adaptados a tu rostro, tu rutina y tu personalidad.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4 6 7 6 10a6 6 0 11-12 0c0-3 2-6 6-10z"/></svg></div>
+        <h3>Color</h3>
+        <p>Coloración a medida, cobertura de canas y matices personalizados con un acabado natural.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12c4-1 7-4 9-9 2 5 5 8 9 9-4 1-7 4-9 9-2-5-5-8-9-9z"/></svg></div>
+        <h3>Balayage &amp; Mechas</h3>
+        <p>Nuestra especialidad. Iluminaciones suaves y degradados que aportan luz y movimiento.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h14M7 4v9a5 5 0 0010 0V4M9 21h6"/></svg></div>
+        <h3>Peinados &amp; Recogidos</h3>
+        <p>Peinados de evento, novias e invitadas. Brushing y ondas para una ocasión especial.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8c2 1 5 1 7 0 2-1 5-1 7 0M5 16c2 1 5 1 7 0 2-1 5-1 7 0"/></svg></div>
+        <h3>Tratamientos</h3>
+        <p>Hidratación, nutrición y reparación profunda para devolver fuerza y brillo a tu cabello.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.2"/></svg></div>
+        <h3>Asesoramiento</h3>
+        <p>Te aconsejamos el look y el cuidado en casa que mejor encajan contigo.</p>
+      </article>
+    </div>
+    <p class="service-note reveal">¿Quieres saber el precio de un servicio concreto? <a href="https://wa.me/34697765884" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te asesoramos sin compromiso.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="container about-grid">
+    <div class="about-visual reveal">SRT</div>
+    <div class="about-text reveal">
+      <p class="eyebrow">El salón</p>
+      <h2>Un espacio donde tu cabello está en buenas manos</h2>
+      <p>En Saritísima realzamos la belleza y la personalidad de cada persona. Nos encanta el detalle, el trato cercano y, sobre todo, cuidar la salud de tu cabello en cada visita.</p>
+      <p>Apostamos por el color natural, el cabello sano y la atención personalizada, trabajando con marcas de referencia en cuidado capilar y herramientas profesionales.</p>
+      <div class="brands">
+        <span class="brand">Davines</span>
+        <span class="brand">GHD</span>
+      </div>
+      <div class="features">
+        <span class="feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Local accesible</span>
+        <span class="feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Aseo adaptado</span>
+        <span class="feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Compromiso con el reciclaje</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nuestro trabajo</p>
+      <h2>Inspírate con nuestra galería</h2>
+      <p>Una muestra de los looks que creamos cada día. Descubre muchos más en nuestro Instagram.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="reveal"><figcaption>Balayage luminoso</figcaption></figure>
+      <figure class="reveal"><figcaption>Color natural</figcaption></figure>
+      <figure class="reveal"><figcaption>Corte &amp; estilo</figcaption></figure>
+      <figure class="reveal"><figcaption>Recogido de novia</figcaption></figure>
+      <figure class="reveal"><figcaption>Mechas suaves</figcaption></figure>
+      <figure class="reveal"><figcaption>Brushing</figcaption></figure>
+      <figure class="reveal"><figcaption>Tratamiento brillo</figcaption></figure>
+      <figure class="reveal"><figcaption>Cambio de look</figcaption></figure>
+    </div>
+    <p class="gallery-note reveal">Sustituye estos espacios por tus fotos reales (guárdalas en una carpeta <em>img</em> y enlázalas).</p>
+    <div class="gallery-foot">
+      <a class="ig-link reveal" href="https://www.instagram.com/saritisima_peluqueria" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @saritisima_peluqueria
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Visítanos</p>
+      <h2>Pide tu cita</h2>
+      <p>Estamos en el centro de Ontinyent. Reserva fácilmente por WhatsApp o teléfono.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="info-row">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.2"/></svg></div>
+          <div><h4>Dirección</h4><p>Carrer del Dos de Maig, 18<br>46870 Ontinyent, Valencia</p></div>
+        </div>
+        <div class="info-row">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.69 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0122 16.92z"/></svg></div>
+          <div><h4>Teléfono &amp; WhatsApp</h4><p><a href="tel:+34697765884">697 76 58 84</a></p></div>
+        </div>
+        <div class="info-row">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <div><h4>Instagram</h4><p><a href="https://www.instagram.com/saritisima_peluqueria" target="_blank" rel="noopener">@saritisima_peluqueria</a></p></div>
+        </div>
+        <div class="info-row">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div>
+            <h4>Horario</h4>
+            <div class="hours">
+              <span><strong>Lunes</strong><em>Cerrado</em></span>
+              <span><strong>Martes – Viernes</strong><em>9:30 – 19:00</em></span>
+              <span><strong>Sábado</strong><em>9:00 – 14:00</em></span>
+              <span><strong>Domingo</strong><em>Cerrado</em></span>
+            </div>
+            <p style="font-size:.78rem;margin-top:.5rem;color:var(--gold-dark)">* Horario orientativo: ajústalo a tu disponibilidad real.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid contact-cta" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Saritísima"
+          src="https://www.google.com/maps?q=Carrer+del+Dos+de+Maig+18,+Ontinyent,+Valencia&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="logo">Saritísima</div>
+    <p>Peluquería en Ontinyent · Color, balayage y cuidado del cabello con cariño.</p>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/saritisima_peluqueria" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://wa.me/34697765884" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.69 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0122 16.92z"/></svg></a>
+      <a href="tel:+34697765884" aria-label="Teléfono"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.69 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0122 16.92z"/></svg></a>
+    </div>
+    <div class="foot-bottom">© <span id="year"></span> Saritísima Peluquería · Carrer del Dos de Maig 18, Ontinyent (Valencia)</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-1.8c1.9 1 4 1.6 6 1.6 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.7c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-4.1 1.1 1.1-4-.3-.4a10 10 0 01-1.6-5.6C5.5 9.7 10.2 5 16 5s10.5 4.7 10.5 10.5S21.8 25.7 16 25.7zm5.8-7.8c-.3-.2-1.9-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.3 5.2 4.6.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+  // sticky header
+  const header=document.getElementById('header');
+  window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40));
+  // mobile menu
+  const burger=document.getElementById('burger'),nav=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  // year
+  document.getElementById('year').textContent=new Date().getFullYear();
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
