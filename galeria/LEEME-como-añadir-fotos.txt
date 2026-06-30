@@ -1,31 +1,40 @@
-GALERÍA DE SARITÍSIMA — CÓMO AÑADIR FOTOS
-============================================
+GALERÍA DE SARITÍSIMA — CÓMO AÑADIR FOTOS Y VÍDEOS
+====================================================
 
-1. Guarda tus fotos DENTRO de esta carpeta "galeria".
+1. Guarda tus archivos DENTRO de esta carpeta "galeria".
 
-2. Nómbralas siguiendo este estándar, siempre con dos dígitos:
+2. Nómbralos siguiendo este estándar, siempre con dos dígitos:
 
-      galeria-01.jpg
-      galeria-02.jpg
-      galeria-03.jpg
-      galeria-04.jpg
-      ... y así sucesivamente
+      galeria-01      galeria-02      galeria-03 ...
+
+   - Fotos:  galeria-01.jpg  (también .jpeg, .png, .webp)
+   - Vídeos: galeria-04.mp4  (también .webm, .mov)
+
+   Fotos y vídeos comparten la MISMA numeración y se muestran en orden:
+   01, 02, 03, 04... (da igual que sean foto o vídeo).
 
    - Empieza en 01 y ve numerando sin saltarte números.
-   - Usa dos dígitos también a partir del 10 (galeria-10.jpg, galeria-11.jpg...).
-   - Formatos admitidos: .jpg, .jpeg, .png y .webp
-   - La web busca hasta galeria-40 (40 fotos máximo).
+   - Usa dos dígitos también a partir del 10 (galeria-10, galeria-11...).
+   - La web busca hasta galeria-40 (40 elementos máximo).
+   - Cada número debe tener UN solo archivo (o foto o vídeo, no ambos).
 
 3. Guarda los cambios y RECARGA la página (index.html) en el navegador.
-   Solo se mostrarán las fotos que existan; las que falten se ignoran.
+   Solo se muestra lo que exista; lo que falte se ignora.
+
+CÓMO SE VEN
+-----------
+- Al pasar el cursor, el elemento se agranda y se eleva sobre el resto.
+- Al hacer clic, se abre a pantalla completa (los vídeos se reproducen
+  con controles). Navega con las flechas ‹ › o el teclado; cierra con Esc.
+- Los vídeos muestran un icono de "play" en la cuadrícula.
 
 CONSEJOS
 --------
-- Fotos verticales (retrato) quedan mejor: se recortan a formato 3:4.
-- Para que carguen rápido, exporta a un tamaño razonable (ancho ~1000-1500 px).
-- El orden en la web sigue el número del nombre: 01 primero, 02 después, etc.
+- Formato vertical (retrato) queda mejor: se recorta a 3:4.
+- Fotos: ancho ~1000-1500 px para que carguen rápido.
+- Vídeos: mejor cortos y ligeros (mp4, pocos MB).
 
 NOTA
 ----
-Las imágenes "galeria-01/02/03" que vienen ahora son SOLO MUESTRAS de ejemplo.
-Bórralas o sustitúyelas por tus fotos reales con el mismo nombre.
+"galeria-01/02/03" (fotos) y "galeria-04.mp4" (vídeo) son SOLO MUESTRAS.
+Bórralas o sustitúyelas por tu contenido real con el mismo nombre.

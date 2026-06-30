@@ -28,7 +28,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -103,27 +103,34 @@
   .feature svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.8}
 
   /* GALLERY */
-  .gallery{background:var(--sand)}
-  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-  .gallery-grid figure{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:#e3d4c0;cursor:pointer;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,opacity .8s;box-shadow:0 8px 24px rgba(120,95,65,.08);z-index:1;will-change:transform}
-  .gallery-grid figure img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
-  .gallery-grid figure:hover{transform:scale(1.34);z-index:9;box-shadow:0 28px 60px rgba(60,45,30,.34)}
-  .gallery-grid figure:hover img{transform:scale(1.05)}
-  .gallery-grid figure::after{content:'⤢';position:absolute;top:10px;right:12px;color:#fff;font-size:.9rem;opacity:0;transition:.3s;text-shadow:0 1px 4px rgba(0,0,0,.4);z-index:2}
+  .gallery{background:var(--sand);padding:5.5rem 0 6rem}
+  .gallery-head{text-align:center;max-width:44rem;margin:0 auto 3rem;padding:0 1.2rem}
+  .gallery-head h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:.8rem}
+  .gallery-head p{color:var(--muted)}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 clamp(14px,3vw,52px);max-width:1700px;margin:0 auto}
+  .gallery-grid figure{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#e3d4c0;cursor:pointer;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,opacity .8s;box-shadow:0 10px 28px rgba(120,95,65,.1);z-index:1;will-change:transform}
+  .gallery-grid figure img,.gallery-grid figure video{width:100%;height:100%;object-fit:cover;display:block;transition:.6s;background:#cdb79e}
+  .gallery-grid figure:hover{transform:scale(1.16);z-index:9;box-shadow:0 30px 60px rgba(60,45,30,.34)}
+  .gallery-grid figure:hover img,.gallery-grid figure:hover video{transform:scale(1.05)}
+  .gallery-grid figure::after{content:'⤢';position:absolute;top:10px;right:12px;color:#fff;font-size:.95rem;opacity:0;transition:.3s;text-shadow:0 1px 4px rgba(0,0,0,.4);z-index:3}
   .gallery-grid figure:hover::after{opacity:.9}
+  .gallery-grid figure.is-video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none}
+  .gallery-grid figure.is-video .play span{width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,.42);border:1.5px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transition:.3s}
+  .gallery-grid figure.is-video:hover .play span{background:var(--gold);border-color:var(--gold)}
+  .gallery-grid figure.is-video .play span::before{content:'';border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
   /* LIGHTBOX */
   .lightbox{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:4vh 5vw;background:rgba(45,33,22,.88);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:.35s}
   .lightbox.open{opacity:1;visibility:visible}
-  .lightbox img{max-width:100%;max-height:92vh;border-radius:12px;box-shadow:0 40px 90px rgba(0,0,0,.55);transform:scale(.94);transition:.35s}
-  .lightbox.open img{transform:scale(1)}
+  .lightbox img,.lightbox video{max-width:100%;max-height:92vh;border-radius:12px;box-shadow:0 40px 90px rgba(0,0,0,.55);transform:scale(.94);transition:.35s}
+  .lightbox.open img,.lightbox.open video{transform:scale(1)}
   .lightbox .lb-close{position:absolute;top:22px;right:30px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.2);color:#fff;font-size:1.6rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s}
   .lightbox .lb-close:hover{background:var(--gold);border-color:var(--gold)}
   .lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.2);color:#fff;font-size:1.6rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;user-select:none}
   .lightbox .lb-nav:hover{background:var(--gold);border-color:var(--gold)}
   .lightbox .lb-prev{left:24px}.lightbox .lb-next{right:24px}
-  .gallery-empty{text-align:center;margin-top:1rem;padding:3rem 1.5rem;border:1px dashed #cbb79e;border-radius:16px;color:var(--muted);font-size:.92rem;background:rgba(255,255,255,.4)}
+  .gallery-empty{text-align:center;margin:1rem auto 0;max-width:46rem;padding:3rem 1.5rem;border:1px dashed #cbb79e;border-radius:16px;color:var(--muted);font-size:.92rem;background:rgba(255,255,255,.4)}
   .gallery-empty strong{color:var(--gold-dark)}
-  .gallery-note{text-align:center;margin-top:2rem;font-size:.85rem;color:var(--muted)}
+  .gallery-note{text-align:center;margin:2rem auto 0;max-width:46rem;padding:0 1.2rem;font-size:.85rem;color:var(--muted)}
   .gallery-note strong{color:var(--gold-dark)}
   .ig-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2.4rem;color:var(--gold-dark);font-weight:500;font-size:.85rem;letter-spacing:.06em}
   .ig-link svg{width:20px;height:20px;stroke:var(--gold-dark);fill:none;stroke-width:1.6}
@@ -168,7 +175,8 @@
   /* RESPONSIVE */
   @media(max-width:900px){
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:2.2rem}
-    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    .gallery-grid{grid-template-columns:repeat(3,1fr)}
+    .gallery-grid figure:hover{transform:scale(1.08)}
     .nav-links{position:fixed;inset:0 0 0 auto;width:75%;max-width:320px;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;gap:2rem;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(0,0,0,.1)}
     .nav-links.open{transform:none}
     .burger{display:flex;z-index:101}
@@ -211,6 +219,24 @@
     </div>
   </div>
   <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="gallery-head reveal">
+    <p class="eyebrow">Nuestro trabajo</p>
+    <h2>Galería</h2>
+    <p>Fotos y vídeos de los looks que creamos cada día. Pasa el cursor para ampliar y haz clic para verlos a pantalla completa.</p>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <p class="gallery-empty" id="galleryEmpty">Aún no hay contenido. Guarda tus fotos o vídeos en la carpeta <strong>galeria</strong> con el nombre <strong>galeria-01</strong>, <strong>galeria-02</strong>… (fotos .jpg/.png · vídeos .mp4) y aparecerán aquí al recargar.</p>
+  <p class="gallery-note" id="galleryNote" style="display:none">Para añadir más, sigue numerando: <strong>galeria-09</strong>, <strong>galeria-10</strong>… &nbsp;Fotos: .jpg .jpeg .png .webp &nbsp;·&nbsp; Vídeos: .mp4 .webm .mov</p>
+  <div class="gallery-foot">
+    <a class="ig-link reveal" href="https://www.instagram.com/saritisima_peluqueria" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @saritisima_peluqueria
+    </a>
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -275,25 +301,6 @@
         <span class="feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Aseo adaptado</span>
         <span class="feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Compromiso con el reciclaje</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery" id="galeria">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Nuestro trabajo</p>
-      <h2>Inspírate con nuestra galería</h2>
-      <p>Una muestra de los looks que creamos cada día. Descubre muchos más en nuestro Instagram.</p>
-    </div>
-    <div class="gallery-grid" id="galleryGrid"></div>
-    <p class="gallery-empty" id="galleryEmpty">Aún no hay fotos. Guarda tus imágenes en la carpeta <strong>galeria</strong> con el nombre <strong>galeria-01.jpg</strong>, <strong>galeria-02.jpg</strong>… y aparecerán aquí al recargar la página.</p>
-    <div class="gallery-foot">
-      <a class="ig-link reveal" href="https://www.instagram.com/saritisima_peluqueria" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        @saritisima_peluqueria
-      </a>
     </div>
   </div>
 </section>
@@ -366,6 +373,7 @@
   <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
   <img id="lbImg" src="" alt="Foto ampliada">
+  <video id="lbVideo" src="" controls playsinline style="display:none"></video>
   <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">&#8250;</button>
 </div>
 
@@ -389,47 +397,67 @@
      galeria-01.jpg, galeria-02.jpg, galeria-03.jpg ...
      Numera siempre con dos dígitos. Admite .jpg .jpeg .png .webp
      Solo se muestran las que existan; recarga la página tras añadirlas. */
-  const gallerySrcs=[];      // fuentes de fotos cargadas (en orden)
+  const galleryItems=[];     // {src,type,order} de cada foto/vídeo cargado
   (function(){
     const MAX=40;                       // intenta hasta galeria-40
-    const EXTS=['jpg','jpeg','png','webp'];
+    // candidatos por slot: primero imágenes, luego vídeos
+    const CAND=[
+      {ext:'jpg',type:'img'},{ext:'jpeg',type:'img'},{ext:'png',type:'img'},{ext:'webp',type:'img'},
+      {ext:'mp4',type:'video'},{ext:'webm',type:'video'},{ext:'mov',type:'video'}
+    ];
     const grid=document.getElementById('galleryGrid');
     const empty=document.getElementById('galleryEmpty');
     const note=document.getElementById('galleryNote');
     let found=0, pending=MAX;
 
+    function add(n,src,type){
+      found++;
+      galleryItems.push({src:src,type:type,order:n});
+      const fig=document.createElement('figure');
+      fig.className='reveal'+(type==='video'?' is-video':'');
+      fig.style.order=n;
+      if(type==='img'){
+        const im=document.createElement('img');
+        im.src=src;im.loading='lazy';im.alt='Saritísima · foto '+n;
+        fig.appendChild(im);
+      }else{
+        const v=document.createElement('video');
+        v.src=src;v.muted=true;v.playsInline=true;v.preload='metadata';
+        fig.appendChild(v);
+        const play=document.createElement('div');play.className='play';play.innerHTML='<span></span>';
+        fig.appendChild(play);
+      }
+      grid.appendChild(fig);
+      observeReveal(fig);
+      fig.addEventListener('click',()=>openLightbox(src));
+    }
+
     function tryLoad(n){
       const base='galeria/galeria-'+String(n).padStart(2,'0')+'.';
-      let ei=0;
-      const img=new Image();
-      img.onload=function(){
-        found++;
-        const fig=document.createElement('figure');
-        fig.className='reveal';
-        fig.style.order=n;             // mantiene el orden numérico
-        img.alt='Saritísima · foto '+n;
-        img.loading='lazy';
-        fig.appendChild(img);
-        grid.appendChild(fig);
-        observeReveal(fig);
-        fig.addEventListener('click',()=>openLightbox(img.currentSrc||img.src));
-        done();
-      };
-      img.onerror=function(){
-        ei++;
-        if(ei<EXTS.length){img.src=base+EXTS[ei];}
-        else{done();}
-      };
-      img.src=base+EXTS[ei];
+      let ci=0;
+      function next(){
+        if(ci>=CAND.length){done();return;}
+        const c=CAND[ci++], url=base+c.ext;
+        if(c.type==='img'){
+          const img=new Image();
+          img.onload=()=>{add(n,url,'img');done();};
+          img.onerror=next;
+          img.src=url;
+        }else{
+          const v=document.createElement('video');
+          v.preload='metadata';
+          v.onloadeddata=()=>{add(n,url,'video');done();};
+          v.onerror=next;
+          v.src=url;
+        }
+      }
+      next();
     }
     function done(){
       if(--pending<=0){
-        // ordena las fuentes por el orden visual de las figuras
-        [...grid.querySelectorAll('figure img')]
-          .sort((a,b)=>(+a.parentNode.style.order)-(+b.parentNode.style.order))
-          .forEach(im=>gallerySrcs.push(im.currentSrc||im.src));
-        if(found>0){empty.style.display='none';note.style.display='block';}
-        else{empty.style.display='block';note.style.display='none';}
+        galleryItems.sort((a,b)=>a.order-b.order);
+        if(found>0){empty.style.display='none';if(note)note.style.display='block';}
+        else{empty.style.display='block';if(note)note.style.display='none';}
       }
     }
     for(let i=1;i<=MAX;i++) tryLoad(i);
@@ -438,23 +466,34 @@
   /* ---- LIGHTBOX (clic = imagen a pantalla completa) ---- */
   const lb=document.getElementById('lightbox'),
         lbImg=document.getElementById('lbImg'),
+        lbVideo=document.getElementById('lbVideo'),
         lbClose=document.getElementById('lbClose'),
         lbPrev=document.getElementById('lbPrev'),
         lbNext=document.getElementById('lbNext');
   let lbIndex=0;
   function showAt(i){
-    if(!gallerySrcs.length) return;
-    lbIndex=(i+gallerySrcs.length)%gallerySrcs.length;
-    lbImg.src=gallerySrcs[lbIndex];
+    if(!galleryItems.length) return;
+    lbIndex=(i+galleryItems.length)%galleryItems.length;
+    const it=galleryItems[lbIndex];
+    lbVideo.pause();
+    if(it.type==='video'){
+      lbImg.style.display='none';
+      lbVideo.style.display='block';
+      lbVideo.src=it.src;lbVideo.currentTime=0;lbVideo.play().catch(()=>{});
+    }else{
+      lbVideo.removeAttribute('src');lbVideo.style.display='none';
+      lbImg.style.display='block';lbImg.src=it.src;
+    }
   }
   function openLightbox(src){
-    const i=gallerySrcs.indexOf(src);
+    const i=galleryItems.findIndex(it=>it.src===src);
     showAt(i<0?0:i);
     lb.classList.add('open');lb.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
   }
   function closeLightbox(){
     lb.classList.remove('open');lb.setAttribute('aria-hidden','true');
+    lbVideo.pause();
     document.body.style.overflow='';
   }
   lbClose.addEventListener('click',closeLightbox);
