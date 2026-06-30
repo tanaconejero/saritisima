@@ -1,0 +1,31 @@
+GALERÍA DE SARITÍSIMA — CÓMO AÑADIR FOTOS
+============================================
+
+1. Guarda tus fotos DENTRO de esta carpeta "galeria".
+
+2. Nómbralas siguiendo este estándar, siempre con dos dígitos:
+
+      galeria-01.jpg
+      galeria-02.jpg
+      galeria-03.jpg
+      galeria-04.jpg
+      ... y así sucesivamente
+
+   - Empieza en 01 y ve numerando sin saltarte números.
+   - Usa dos dígitos también a partir del 10 (galeria-10.jpg, galeria-11.jpg...).
+   - Formatos admitidos: .jpg, .jpeg, .png y .webp
+   - La web busca hasta galeria-40 (40 fotos máximo).
+
+3. Guarda los cambios y RECARGA la página (index.html) en el navegador.
+   Solo se mostrarán las fotos que existan; las que falten se ignoran.
+
+CONSEJOS
+--------
+- Fotos verticales (retrato) quedan mejor: se recortan a formato 3:4.
+- Para que carguen rápido, exporta a un tamaño razonable (ancho ~1000-1500 px).
+- El orden en la web sigue el número del nombre: 01 primero, 02 después, etc.
+
+NOTA
+----
+Las imágenes "galeria-01/02/03" que vienen ahora son SOLO MUESTRAS de ejemplo.
+Bórralas o sustitúyelas por tus fotos reales con el mismo nombre.
