@@ -8,8 +8,19 @@
 <meta name="theme-color" content="#b8956a">
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <meta property="og:title" content="Saritísima · Peluquería en Ontinyent">
-<meta property="og:description" content="Especialistas en balayage, color y cuidado del cabello. Productos Davines y GHD.">
+<meta property="og:description" content="Especialistas en balayage, color y cuidado del cabello. Productos Davines y GHD. Pide cita por WhatsApp.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Saritísima Peluquería">
+<meta property="og:url" content="https://saritisima-one.vercel.app/">
+<meta property="og:image" content="https://saritisima-one.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saritísima · Peluquería en Ontinyent">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Saritísima · Peluquería en Ontinyent">
+<meta name="twitter:description" content="Especialistas en balayage, color y cuidado del cabello.">
+<meta name="twitter:image" content="https://saritisima-one.vercel.app/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -66,6 +77,8 @@
   .hero-inner{position:relative;z-index:2;width:90%;max-width:780px;margin:0 auto;padding:7rem 0 5rem;display:flex;flex-direction:column;align-items:center}
   .hero-brand{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:0 12px 34px rgba(120,95,65,.22);margin-bottom:1.8rem}
   .hero .eyebrow{margin-bottom:1.2rem}
+  .estado-salon{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--sans);font-size:.74rem;letter-spacing:.06em;font-weight:600;margin-bottom:1.4rem;padding:.32rem .9rem;border-radius:30px;background:rgba(255,255,255,.6);border:1px solid rgba(120,95,65,.12);box-shadow:0 2px 8px rgba(120,95,65,.06)}
+  .estado-salon:empty{display:none}
   .hero h1{font-size:clamp(2.8rem,6.4vw,5rem);line-height:1.08;letter-spacing:.01em;margin-bottom:1.5rem}
   .hero h1 em{font-style:italic;color:var(--gold)}
   .hero .lead{font-size:1.1rem;color:var(--muted);max-width:36rem;margin:0 auto 2.4rem}
@@ -86,8 +99,12 @@
   .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
   .service-card .ico{width:54px;height:54px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
   .service-card .ico svg{width:26px;height:26px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
+  .service-card{display:flex;flex-direction:column}
   .service-card h3{font-size:1.5rem;margin-bottom:.6rem}
   .service-card p{font-size:.92rem;color:var(--muted)}
+  .card-cta{display:inline-flex;align-items:center;gap:.45rem;align-self:flex-start;margin-top:1.4rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:500;color:var(--gold-dark);padding:.62rem 1.15rem;border:1px solid var(--gold);border-radius:30px;transition:.3s}
+  .card-cta svg{width:15px;height:15px;fill:currentColor}
+  .card-cta:hover{background:var(--gold);color:#fff}
   .service-note{text-align:center;margin-top:2.6rem;font-size:.95rem;color:var(--muted)}
   .service-note a{color:var(--gold-dark);font-weight:500;border-bottom:1px solid var(--gold)}
 
@@ -164,9 +181,11 @@
   .foot-bottom{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);font-size:.75rem;color:#8d8073;letter-spacing:.05em}
 
   /* WHATSAPP FLOAT */
-  .wa-float{position:fixed;right:22px;bottom:22px;z-index:200;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.45);transition:.3s}
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:200;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);transition:transform .2s}
   .wa-float:hover{transform:scale(1.08)}
-  .wa-float svg{width:32px;height:32px;fill:#fff}
+  .wa-float::before{content:'';position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:-1;animation:waPulse 2.4s ease-out infinite}
+  @keyframes waPulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.wa-float::before{animation:none}}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.7,.2,1)}
@@ -210,6 +229,7 @@
   <div class="hero-inner">
     <img src="logo.jpg" alt="Logo Saritísima" class="hero-brand" onerror="this.onerror=null;this.src='logo.svg'">
     <p class="eyebrow">Peluquería · Ontinyent (Valencia)</p>
+    <span class="estado-salon" aria-live="polite"></span>
     <h1>Tu cabello, <em>realzado</em><br>con arte y cuidado</h1>
     <div class="hero-rule"></div>
     <p class="lead">Especialistas en color, balayage y cabello sano. Un espacio cercano donde cada melena recibe atención personalizada y un acabado natural que enamora.</p>
@@ -252,31 +272,37 @@
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l9-9M14 7a3 3 0 100-6 3 3 0 000 6zM6 21a3 3 0 100-6 3 3 0 000 6z"/></svg></div>
         <h3>Corte &amp; Estilo</h3>
         <p>Cortes femeninos y masculinos adaptados a tu rostro, tu rutina y tu personalidad.</p>
+        <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Corte%20%26%20Estilo%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Corte</a>
       </article>
       <article class="service-card reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4 6 7 6 10a6 6 0 11-12 0c0-3 2-6 6-10z"/></svg></div>
         <h3>Color</h3>
         <p>Coloración a medida, cobertura de canas y matices personalizados con un acabado natural.</p>
+        <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Color%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Color</a>
       </article>
       <article class="service-card reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12c4-1 7-4 9-9 2 5 5 8 9 9-4 1-7 4-9 9-2-5-5-8-9-9z"/></svg></div>
         <h3>Balayage &amp; Mechas</h3>
         <p>Nuestra especialidad. Iluminaciones suaves y degradados que aportan luz y movimiento.</p>
+        <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Balayage%20%E2%9C%A8%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Balayage</a>
       </article>
       <article class="service-card reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h14M7 4v9a5 5 0 0010 0V4M9 21h6"/></svg></div>
         <h3>Peinados &amp; Recogidos</h3>
         <p>Peinados de evento, novias e invitadas. Brushing y ondas para una ocasión especial.</p>
+        <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Peinado%20o%20Recogido%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Peinado</a>
       </article>
       <article class="service-card reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8c2 1 5 1 7 0 2-1 5-1 7 0M5 16c2 1 5 1 7 0 2-1 5-1 7 0"/></svg></div>
         <h3>Tratamientos</h3>
         <p>Hidratación, nutrición y reparación profunda para devolver fuerza y brillo a tu cabello.</p>
+        <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Tratamiento%20capilar%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Tratamiento</a>
       </article>
       <article class="service-card reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.2"/></svg></div>
         <h3>Asesoramiento</h3>
         <p>Te aconsejamos el look y el cuidado en casa que mejor encajan contigo.</p>
+        <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20un%20asesoramiento%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Asesoría</a>
       </article>
     </div>
     <p class="service-note reveal">¿Quieres saber el precio de un servicio concreto? <a href="https://wa.me/34697765884" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te asesoramos sin compromiso.</p>
@@ -331,6 +357,7 @@
           <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
           <div>
             <h4>Horario</h4>
+            <span class="estado-salon" aria-live="polite" style="margin:0 0 .6rem"></span>
             <div class="hours">
               <span><strong>Lunes</strong><em>Cerrado</em></span>
               <span><strong>Martes – Viernes</strong><em>9:30 – 19:00</em></span>
@@ -364,8 +391,10 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-1.8c1.9 1 4 1.6 6 1.6 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.7c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-4.1 1.1 1.1-4-.3-.4a10 10 0 01-1.6-5.6C5.5 9.7 10.2 5 16 5s10.5 4.7 10.5 10.5S21.8 25.7 16 25.7zm5.8-7.8c-.3-.2-1.9-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.3 5.2 4.6.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+<a class="wa-float" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20pedir%20cita%20en%20Sarit%C3%ADsima" target="_blank" rel="noopener" aria-label="Pedir cita por WhatsApp">
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" aria-hidden="true">
+    <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+  </svg>
 </a>
 
 <!-- LIGHTBOX -->
@@ -387,6 +416,30 @@
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
   // year
   document.getElementById('year').textContent=new Date().getFullYear();
+
+  /* ---- ESTADO ABIERTO / CERRADO (hora local del visitante) ---- */
+  (function(){
+    const horario={0:null,1:null,2:["09:30","19:00"],3:["09:30","19:00"],
+                   4:["09:30","19:00"],5:["09:30","19:00"],6:["09:00","14:00"]};
+    const els=document.querySelectorAll('.estado-salon');
+    if(!els.length) return;
+    function render(){
+      const ahora=new Date(), tramo=horario[ahora.getDay()];
+      let abierto=false;
+      if(tramo){
+        const [h1,m1]=tramo[0].split(":").map(Number);
+        const [h2,m2]=tramo[1].split(":").map(Number);
+        const min=ahora.getHours()*60+ahora.getMinutes();
+        abierto=min>=h1*60+m1 && min<h2*60+m2;
+      }
+      els.forEach(el=>{
+        el.textContent=abierto?"● Abierto ahora":"● Cerrado ahora";
+        el.style.color=abierto?"#2e9e4f":"#c0392b";
+      });
+    }
+    render();
+    setInterval(render,60000);   // se actualiza cada minuto
+  })();
   // reveal on scroll
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   function observeReveal(el){io.observe(el)}
