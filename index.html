@@ -218,6 +218,23 @@
   .gallery-grid figure.is-video .play span{width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,.42);border:1.5px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;transition:.3s}
   .gallery-grid figure.is-video:hover .play span{background:var(--gold);border-color:var(--gold)}
   .gallery-grid figure.is-video .play span::before{content:'';border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+  /* BOOKING MODAL */
+  .booking{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;padding:4vh 5vw;background:rgba(45,33,22,.75);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:.3s}
+  .booking.open{opacity:1;visibility:visible}
+  .booking-card{position:relative;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;background:var(--cream);border-radius:22px;padding:2.6rem 2.4rem;box-shadow:0 40px 90px rgba(0,0,0,.4);transform:translateY(16px) scale(.98);transition:.3s}
+  .booking.open .booking-card{transform:none}
+  .bk-close{position:absolute;top:16px;right:18px;width:40px;height:40px;border-radius:50%;border:1px solid #e2d3c1;background:var(--white);color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer;transition:.3s}
+  .bk-close:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+  .booking-card h3{font-size:2.1rem;margin-bottom:.5rem}
+  .bk-sub{color:var(--muted);font-size:.92rem;margin-bottom:1.6rem}
+  #bkForm label{display:block;font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--gold-dark);margin-bottom:1rem}
+  .bk-opt{text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted)}
+  #bkForm input,#bkForm select,#bkForm textarea{display:block;width:100%;margin-top:.45rem;padding:.8rem .9rem;border:1px solid #e2d3c1;border-radius:10px;background:var(--white);font-family:var(--sans);font-size:.95rem;font-weight:300;color:var(--ink);transition:.25s}
+  #bkForm input:focus,#bkForm select:focus,#bkForm textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,149,106,.18)}
+  #bkForm textarea{resize:vertical}
+  .bk-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .bk-submit{width:100%;margin-top:.4rem;border:none;cursor:pointer;font-size:.8rem}
+  @media(max-width:520px){.bk-row{grid-template-columns:1fr}.booking-card{padding:2.2rem 1.5rem}}
   /* LIGHTBOX */
   .lightbox{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:4vh 5vw;background:rgba(45,33,22,.88);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:.35s}
   .lightbox.open{opacity:1;visibility:visible}
@@ -314,7 +331,7 @@
       <li><a href="#galeria">Galería</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contacto">Contacto</a></li>
-      <li><a href="https://wa.me/34697765884" class="nav-cta" target="_blank" rel="noopener">Pide cita</a></li>
+      <li><a href="https://wa.me/34697765884" class="nav-cta js-cita" target="_blank" rel="noopener">Pide cita</a></li>
     </ul>
     <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
@@ -330,7 +347,7 @@
     <div class="hero-rule"></div>
     <p class="lead">Especialistas en color, balayage y cabello sano. Un espacio cercano donde cada melena recibe atención personalizada y un acabado natural que enamora.</p>
     <div class="hero-actions">
-      <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid" target="_blank" rel="noopener">Pide cita por WhatsApp</a>
+      <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid js-cita" target="_blank" rel="noopener">Pide cita por WhatsApp</a>
       <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
     </div>
   </div>
@@ -500,7 +517,7 @@
             <p style="font-size:.78rem;margin-top:.5rem;color:var(--gold-dark)">* Horario orientativo: ajústalo a tu disponibilidad real.</p>
           </div>
         </div>
-        <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid contact-cta" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+        <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid contact-cta js-cita" target="_blank" rel="noopener">Reservar por WhatsApp</a>
       </div>
       <div class="map-wrap reveal">
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Saritísima"
@@ -524,11 +541,60 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20pedir%20cita%20en%20Sarit%C3%ADsima" target="_blank" rel="noopener" aria-label="Pedir cita por WhatsApp">
+<a class="wa-float js-cita" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20pedir%20cita%20en%20Sarit%C3%ADsima" target="_blank" rel="noopener" aria-label="Pedir cita por WhatsApp">
   <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" aria-hidden="true">
     <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
   </svg>
 </a>
+
+<!-- MODAL PEDIR CITA -->
+<div class="booking" id="booking" aria-hidden="true">
+  <div class="booking-card" role="dialog" aria-modal="true" aria-labelledby="bkTitle">
+    <button class="bk-close" id="bkClose" aria-label="Cerrar">&times;</button>
+    <p class="eyebrow" style="margin-bottom:.5rem">Reserva</p>
+    <h3 id="bkTitle">Pide tu cita</h3>
+    <p class="bk-sub">Rellena lo que quieras y te preparamos el mensaje de WhatsApp para enviárselo a Sara. Si lo dejas vacío, se envía uno genérico.</p>
+    <form id="bkForm" novalidate>
+      <label>Nombre
+        <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre">
+      </label>
+      <label>Servicio
+        <select name="servicio" id="bkServicio">
+          <option value="">Elige un servicio…</option>
+          <option>Corte &amp; Estilo</option>
+          <option>Color</option>
+          <option>Balayage &amp; Mechas</option>
+          <option>Peinado o Recogido</option>
+          <option>Tratamiento capilar</option>
+          <option>Asesoramiento</option>
+          <option>Otro</option>
+        </select>
+      </label>
+      <div class="bk-row">
+        <label>Fecha preferida
+          <input type="date" name="fecha" id="bkFecha">
+        </label>
+        <label>Franja horaria
+          <select name="franja">
+            <option value="">Indiferente</option>
+            <option>Mañana</option>
+            <option>Tarde</option>
+          </select>
+        </label>
+      </div>
+      <label>Teléfono <span class="bk-opt">(opcional)</span>
+        <input type="tel" name="telefono" autocomplete="tel" placeholder="Para confirmarte la cita">
+      </label>
+      <label>Comentario <span class="bk-opt">(opcional)</span>
+        <textarea name="comentario" rows="3" placeholder="Cuéntanos lo que quieras: largo, color deseado, una foto de referencia…"></textarea>
+      </label>
+      <button type="submit" class="btn btn-solid bk-submit">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff" aria-hidden="true" style="vertical-align:-3px;margin-right:.4rem"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </form>
+  </div>
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -692,6 +758,81 @@
     if(e.key==='ArrowLeft')showAt(lbIndex-1);
     if(e.key==='ArrowRight')showAt(lbIndex+1);
   });
+
+  /* ---- FORMULARIO DE CITA -> WHATSAPP ---- */
+  (function(){
+    const WA='https://wa.me/34697765884?text=';
+    const GENERICO='Hola, quiero pedir cita en Saritísima';
+    const booking=document.getElementById('booking'),
+          form=document.getElementById('bkForm'),
+          selServicio=document.getElementById('bkServicio'),
+          inpFecha=document.getElementById('bkFecha'),
+          bkClose=document.getElementById('bkClose');
+    if(!booking) return;
+    let lastFocus=null;
+
+    function openBooking(servicio){
+      lastFocus=document.activeElement;
+      // fecha mínima = hoy
+      const hoy=new Date();hoy.setMinutes(hoy.getMinutes()-hoy.getTimezoneOffset());
+      inpFecha.min=hoy.toISOString().slice(0,10);
+      // preselecciona servicio si viene de una tarjeta
+      if(servicio){
+        [...selServicio.options].forEach(o=>{if(o.text===servicio)selServicio.value=o.value||o.text;});
+      }
+      booking.classList.add('open');booking.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      setTimeout(()=>{const f=form.querySelector('input,select');if(f)f.focus();},80);
+    }
+    function closeBooking(){
+      booking.classList.remove('open');booking.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      if(lastFocus)lastFocus.focus();
+    }
+    function fechaBonita(v){
+      if(!v)return'';
+      const [y,m,d]=v.split('-');return d+'/'+m+'/'+y;
+    }
+    function construirMensaje(){
+      const g=n=>(form.elements[n].value||'').trim();
+      const nombre=g('nombre'),servicio=g('servicio'),fecha=g('fecha'),
+            franja=g('franja'),tel=g('telefono'),coment=g('comentario');
+      const lineas=[];
+      if(nombre)   lineas.push('*Nombre:* '+nombre);
+      if(servicio) lineas.push('*Servicio:* '+servicio);
+      if(fecha)    lineas.push('*Fecha preferida:* '+fechaBonita(fecha));
+      if(franja)   lineas.push('*Franja:* '+franja);
+      if(tel)      lineas.push('*Teléfono:* '+tel);
+      if(coment)   lineas.push('*Comentario:* '+coment);
+      if(!lineas.length) return GENERICO;
+      return '¡Hola Sara! Quiero pedir cita en Saritísima 💇‍♀️\n\n'+lineas.join('\n');
+    }
+
+    // abrir desde cualquier CTA principal
+    document.querySelectorAll('.js-cita').forEach(a=>{
+      a.addEventListener('click',e=>{e.preventDefault();openBooking('');});
+    });
+    // abrir desde tarjetas de servicio con el servicio preseleccionado
+    const MAP={'Corte':'Corte & Estilo','Color':'Color','Balayage':'Balayage & Mechas',
+               'Peinado':'Peinado o Recogido','Tratamiento':'Tratamiento capilar','Asesoría':'Asesoramiento'};
+    document.querySelectorAll('.card-cta').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        const token=a.textContent.split('·').pop().trim();
+        openBooking(MAP[token]||'');
+      });
+    });
+
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const url=WA+encodeURIComponent(construirMensaje());
+      window.open(url,'_blank','noopener');
+      closeBooking();
+    });
+    bkClose.addEventListener('click',closeBooking);
+    booking.addEventListener('click',e=>{if(e.target===booking)closeBooking();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&booking.classList.contains('open'))closeBooking();});
+  })();
 </script>
 </body>
 </html>
