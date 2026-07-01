@@ -176,19 +176,23 @@
   .section-head p{color:var(--muted)}
 
   /* SERVICES */
-  .services{background:var(--white)}
-  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.6rem}
-  .service-card{background:var(--cream);border:1px solid #eaddcf;border-radius:18px;padding:2.4rem 2rem;transition:.35s}
-  .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
-  .service-card .ico{width:54px;height:54px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
-  .service-card .ico svg{width:26px;height:26px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
-  .service-card{display:flex;flex-direction:column}
-  .service-card h3{font-size:1.5rem;margin-bottom:.6rem}
-  .service-card p{font-size:.92rem;color:var(--muted)}
-  .card-cta{display:inline-flex;align-items:center;gap:.45rem;align-self:flex-start;margin-top:1.4rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:500;color:var(--gold-dark);padding:.62rem 1.15rem;border:1px solid var(--gold);border-radius:30px;transition:.3s}
+  .services{background:linear-gradient(180deg,#ffffff 0%,var(--cream) 100%)}
+  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;counter-reset:svc}
+  .service-card{position:relative;display:flex;flex-direction:column;background:var(--white);border:1px solid #ece0d0;border-radius:22px;padding:2.8rem 2.2rem 2.4rem;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .4s;counter-increment:svc}
+  .service-card::before{content:counter(svc,decimal-leading-zero);position:absolute;top:1.5rem;right:1.7rem;font-family:var(--serif);font-style:italic;font-size:2.6rem;line-height:1;color:#efe4d3;transition:.4s;pointer-events:none}
+  .service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#e0c39d);transform:scaleX(0);transform-origin:left;transition:transform .45s}
+  .service-card:hover{transform:translateY(-8px);box-shadow:0 26px 56px rgba(120,95,65,.16);border-color:transparent}
+  .service-card:hover::after{transform:scaleX(1)}
+  .service-card:hover::before{color:var(--gold);opacity:.55}
+  .service-card .ico{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#f6ecdc,#e8d4ba);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;box-shadow:inset 0 0 0 1px rgba(184,149,106,.25);transition:.4s}
+  .service-card:hover .ico{transform:scale(1.06) rotate(-4deg)}
+  .service-card .ico svg{width:29px;height:29px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
+  .service-card h3{font-size:1.6rem;margin-bottom:.6rem;letter-spacing:.01em}
+  .service-card p{font-size:.93rem;color:var(--muted);margin-bottom:1.6rem}
+  .card-cta{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;margin-top:auto;font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-dark);padding:.66rem 1.25rem;border:1px solid var(--gold);border-radius:30px;transition:.3s}
   .card-cta svg{width:15px;height:15px;fill:currentColor}
-  .card-cta:hover{background:var(--gold);color:#fff}
-  .service-note{text-align:center;margin-top:2.6rem;font-size:.95rem;color:var(--muted)}
+  .card-cta:hover{background:var(--gold);color:#fff;box-shadow:0 8px 20px rgba(184,149,106,.35)}
+  .service-note{text-align:center;margin-top:3rem;font-size:.95rem;color:var(--muted)}
   .service-note a{color:var(--gold-dark);font-weight:500;border-bottom:1px solid var(--gold)}
 
   /* ABOUT */
@@ -363,7 +367,7 @@
   </div>
   <div class="gallery-grid" id="galleryGrid"></div>
   <p class="gallery-empty" id="galleryEmpty">Aún no hay contenido. Guarda tus fotos o vídeos en la carpeta <strong>galeria</strong> con el nombre <strong>galeria-01</strong>, <strong>galeria-02</strong>… (fotos .jpg/.png · vídeos .mp4) y aparecerán aquí al recargar.</p>
-  <p class="gallery-note" id="galleryNote" style="display:none">Para añadir más, sigue numerando: <strong>galeria-09</strong>, <strong>galeria-10</strong>… &nbsp;Fotos: .jpg .jpeg .png .webp &nbsp;·&nbsp; Vídeos: .mp4 .webm .mov</p>
+
   <div class="gallery-foot">
     <a class="ig-link reveal" href="https://www.instagram.com/saritisima_peluqueria" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -418,7 +422,7 @@
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20un%20asesoramiento%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Asesoría</a>
       </article>
     </div>
-    <p class="service-note reveal">¿Quieres saber el precio de un servicio concreto? <a href="https://wa.me/34697765884" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te asesoramos sin compromiso.</p>
+    <p class="service-note reveal">¿Quieres saber el precio de un servicio concreto? <a href="https://wa.me/34697765884" class="js-cita" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te asesoramos sin compromiso.</p>
   </div>
 </section>
 
@@ -459,7 +463,7 @@
       </details>
       <details class="faq-item reveal">
         <summary>¿Cómo puedo pedir cita?</summary>
-        <div class="faq-a"><p>Puedes pedir cita por <a href="https://wa.me/34697765884?text=Hola%2C%20quiero%20pedir%20cita%20en%20Sarit%C3%ADsima" target="_blank" rel="noopener">WhatsApp</a> o por teléfono en el <a href="tel:+34697765884">697 76 58 84</a>. Te respondemos lo antes posible.</p></div>
+        <div class="faq-a"><p>Puedes pedir cita por <a href="https://wa.me/34697765884?text=Hola%2C%20quiero%20pedir%20cita%20en%20Sarit%C3%ADsima" class="js-cita" target="_blank" rel="noopener">WhatsApp</a> o por teléfono en el <a href="tel:+34697765884">697 76 58 84</a>. Te respondemos lo antes posible.</p></div>
       </details>
       <details class="faq-item reveal">
         <summary>¿Hacéis balayage y mechas?</summary>
