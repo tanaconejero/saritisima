@@ -184,10 +184,7 @@
   .service-card:hover{transform:translateY(-8px);box-shadow:0 26px 56px rgba(120,95,65,.16);border-color:transparent}
   .service-card:hover::after{transform:scaleX(1)}
   .service-card:hover::before{color:var(--gold);opacity:.55}
-  .service-card .ico{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#f6ecdc,#e8d4ba);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;box-shadow:inset 0 0 0 1px rgba(184,149,106,.25);transition:.4s}
-  .service-card:hover .ico{transform:scale(1.06) rotate(-4deg)}
-  .service-card .ico svg{width:29px;height:29px;stroke:var(--gold-dark);fill:none;stroke-width:1.5}
-  .service-card h3{font-size:1.6rem;margin-bottom:.6rem;letter-spacing:.01em}
+  .service-card h3{font-size:1.6rem;margin-bottom:.6rem;letter-spacing:.01em;padding-right:2.4rem}
   .service-card p{font-size:.93rem;color:var(--muted);margin-bottom:1.6rem}
   .card-cta{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;margin-top:auto;font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-dark);padding:.66rem 1.25rem;border:1px solid var(--gold);border-radius:30px;transition:.3s}
   .card-cta svg{width:15px;height:15px;fill:currentColor}
@@ -352,7 +349,7 @@
     <p class="lead">Especialistas en color, balayage y cabello sano. Un espacio cercano donde cada melena recibe atención personalizada y un acabado natural que enamora.</p>
     <div class="hero-actions">
       <a href="https://wa.me/34697765884?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Sarit%C3%ADsima" class="btn btn-solid js-cita" target="_blank" rel="noopener">Pide cita por WhatsApp</a>
-      <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      <a href="#galeria" class="btn btn-ghost">Ver galería</a>
     </div>
   </div>
   <div class="scroll-hint">scroll</div>
@@ -386,37 +383,31 @@
     </div>
     <div class="service-grid">
       <article class="service-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l9-9M14 7a3 3 0 100-6 3 3 0 000 6zM6 21a3 3 0 100-6 3 3 0 000 6z"/></svg></div>
         <h3>Corte &amp; Estilo</h3>
         <p>Cortes femeninos y masculinos adaptados a tu rostro, tu rutina y tu personalidad.</p>
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Corte%20%26%20Estilo%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Corte</a>
       </article>
       <article class="service-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4 6 7 6 10a6 6 0 11-12 0c0-3 2-6 6-10z"/></svg></div>
         <h3>Color</h3>
         <p>Coloración a medida, cobertura de canas y matices personalizados con un acabado natural.</p>
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Color%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Color</a>
       </article>
       <article class="service-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12c4-1 7-4 9-9 2 5 5 8 9 9-4 1-7 4-9 9-2-5-5-8-9-9z"/></svg></div>
         <h3>Balayage &amp; Mechas</h3>
         <p>Nuestra especialidad. Iluminaciones suaves y degradados que aportan luz y movimiento.</p>
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Balayage%20%E2%9C%A8%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Balayage</a>
       </article>
       <article class="service-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h14M7 4v9a5 5 0 0010 0V4M9 21h6"/></svg></div>
         <h3>Peinados &amp; Recogidos</h3>
         <p>Peinados de evento, novias e invitadas. Brushing y ondas para una ocasión especial.</p>
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Peinado%20o%20Recogido%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Peinado</a>
       </article>
       <article class="service-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8c2 1 5 1 7 0 2-1 5-1 7 0M5 16c2 1 5 1 7 0 2-1 5-1 7 0"/></svg></div>
         <h3>Tratamientos</h3>
         <p>Hidratación, nutrición y reparación profunda para devolver fuerza y brillo a tu cabello.</p>
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20cita%20para%20Tratamiento%20capilar%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Tratamiento</a>
       </article>
       <article class="service-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.2"/></svg></div>
         <h3>Asesoramiento</h3>
         <p>Te aconsejamos el look y el cuidado en casa que mejor encajan contigo.</p>
         <a class="card-cta" href="https://wa.me/34697765884?text=Hola%2C%20quiero%20un%20asesoramiento%20%28desde%20la%20web%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>Pedir cita · Asesoría</a>
